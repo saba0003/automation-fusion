@@ -1,0 +1,9 @@
+🔒 Logout Feature (UI Test Report)
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|                  Scenario                   |                   Step Description                       | Status  |                          Notes                            |
+| ------------------------------------------- | -------------------------------------------------------- | ------- | ----------------------------------------------------------|
+| User successfully logs out from application | Given User is logged in with valid credentials           | ✅ Pass | User successfully logged in                               |
+|                                             | When User clicks the menu button                         | ✅ Pass | Menu button clicked                                       |
+|                                             | And User clicks the logout link                          | ✅ Pass | Logout link clicked                                       |
+|                                             | Then User should be redirected to the login page         | ✅ Pass | Verified redirect to login page                           |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

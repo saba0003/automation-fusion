@@ -1,0 +1,12 @@
+<suite name="My Suite">
+    <test name="API Tests">
+        <classes>
+            <class name="api.PostsApiTests"/>
+        </classes>
+        <groups>
+            <run>
+                <include name="API"/>
+            </run>
+        </groups>
+    </test>
+</suite>

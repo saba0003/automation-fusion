@@ -1,0 +1,20 @@
+➕ Positive Test Cases (API Tests Report)
+----------------------------------------------------------------------------------------------------------------------------------------------
+|                      Test Name                         | Status  |         Tags        |                     Notes                         |
+| ------------------------------------------------------ | ------- | ----------------------------------------------------------------------- |
+| `getAllPosts_shouldReturn200_andAtLeast100Posts`       | ✅ Pass | @Positive           | /posts returns 200 and contains ≥100 posts        |
+| `getPostById_shouldReturn200_andUserIdIs1`             | ✅ Pass | @Positive           | /posts/1 returns 200 and userId is 1              |
+| `createNewPost_shouldReturn201_andCorrectResponseBody` | ✅ Pass | @Positive           | /posts returns 201 and echoes correct data        |
+| `updatePost_shouldReturn200_andUpdateFieldsCorrectly`  | ✅ Pass | @Positive           | /posts/1 returns 200 and fields are updated       |
+| `deletePost_shouldReturnEither200or204_andEmptyBody`   | ✅ Pass | @Positive           | /posts/1 DELETE returns 200/204 with empty body   |
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+➖ Negative Test Cases (API Tests Report)
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|                         Test Name                                | Status  |         Tags        |                        Notes                                                        |
+| ---------------------------------------------------------------- | ------- | ------------------- | ------------------------------------------------------------------------------------|
+| `getNonexistentPost_shouldReturn404`                             | ✅ Pass | @Negative           | Correctly returned 404 when accessing nonexistent post                              |
+| `createPost_withEmptyBody_shouldReturn201EvenThoughItShouldFail` | ✅ pass | @Negative           | Returns 201 with empty body — not expected; marked as UnexpectedBehavior            |
+| `updateNonexistentPost_shouldReturn500`                          | ✅ Pass | @Negative           | PUT on nonexistent post correctly returns 500                                       |
+| `deleteNonexistentPost_shouldReturn200EvenWhenNothingDeleted`    | ✅ Pass | @Negative           | Returns 200 even when deleting a nonexistent post; marked as UnexpectedBehavior     |
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

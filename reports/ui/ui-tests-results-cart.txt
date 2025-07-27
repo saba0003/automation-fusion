@@ -1,0 +1,45 @@
+🛒 Cart Feature (UI Tests Report)
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|                    Scenario                         |                          Step Description                              | Status  |                             Notes                              |
+| --------------------------------------------------- | ---------------------------------------------------------------------- | ------- | ---------------------------------------------------------------|
+| Add a product to the cart and verify it's added     | Given User is logged in with valid credentials                         | ✅ Pass | Login successful                                               |
+|                                                     | When User adds "Sauce Labs Backpack" to the cart                       | ✅ Pass | Product added                                                  |
+|                                                     | And User opens the cart                                                | ✅ Pass | Cart page opened                                               |
+|                                                     | Then The cart badge should show 1 item                                 | ✅ Pass | Badge shows correct item count                                 |
+|                                                     | And The product "Sauce Labs Backpack" should appear in the cart        | ✅ Pass | Product verified in cart                                       |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Add and remove a product from the cart              | Given User is logged in with valid credentials                         | ✅ Pass | Login successful                                               |
+|                                                     | When User adds "Sauce Labs Bike Light" to the cart                     | ✅ Pass | Product added                                                  |
+|                                                     | And User opens the cart                                                | ✅ Pass | Cart page opened                                               |
+|                                                     | And User removes "Sauce Labs Bike Light" from the cart                 | ✅ Pass | Product removed                                                |
+|                                                     | Then The cart should be empty                                          | ✅ Pass | Cart empty confirmed                                           |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Try to add a non-existent product                   | Given User is logged in with valid credentials                         | ✅ Pass | Login successful                                               |
+|                                                     | When User tries to add non-existent product "Invisible Cloak 3000"     | ✅ Pass | Gracefully handled non-existent product                        |
+|                                                     | And User opens the cart                                                | ✅ Pass | Cart page opened                                               |
+|                                                     | Then The cart badge should show 0 item                                 | ✅ Pass | Badge correctly shows 0                                        |
+|                                                     | And The product "Invisible Cloak 3000" should not appear in the cart   | ✅ Pass | Product not found in cart (as expected)                        |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Remove a product that was never added               | Given User is logged in with valid credentials                         | ✅ Pass | Login successful                                               |
+|                                                     | When User removes "Sauce Labs Fleece Jacket" from the cart             | ✅ Pass | No crash when removing non-added product                       |
+|                                                     | And User opens the cart                                                | ✅ Pass | Cart page opened                                               |
+|                                                     | Then The cart should be empty                                          | ✅ Pass | Cart empty confirmed                                           |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| View cart when no items are added                   | Given User is logged in with valid credentials                         | ✅ Pass | Login successful                                               |
+|                                                     | When User opens the cart                                               | ✅ Pass | Cart page opened                                               |
+|                                                     | Then The cart should be empty                                          | ✅ Pass | Cart empty confirmed                                           |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Cart after re-login (standard_user)                 | Given User is logged in with valid credentials                         | ✅ Pass | Login successful                                               |
+|                                                     | When User adds "Sauce Labs Backpack" to the cart                       | ✅ Pass | Product added                                                  |
+|                                                     | And User logs out                                                      | ✅ Pass | User logged out                                                |
+|                                                     | And User logs in with username "standard_user" and password...         | ✅ Pass | Re-login successful                                            |
+|                                                     | Then The cart badge should show 1 item                                 | ✅ Pass | Cart item persisted                                            |
+|                                                     | And The product "Sauce Labs Backpack" should appear in the cart        | ✅ Pass | Product found in cart                                          |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Cart after re-login (problem_user)                  | Given User is logged in with valid credentials                         | ✅ Pass | Login successful                                               |
+|                                                     | When User adds "Sauce Labs Backpack" to the cart                       | ✅ Pass | Product added                                                  |
+|                                                     | And User logs out                                                      | ✅ Pass | User logged out                                                |
+|                                                     | And User logs in with username "problem_user" and password...          | ✅ Pass | Re-login successful                                            |
+|                                                     | Then The cart badge should show 0 item                                 | ❌ Pass | Cart item did not persist correctly                            |
+|                                                     | And The cart should be empty                                           | ❌ Pass | Cart did not verify as empty                                   |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

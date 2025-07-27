@@ -1,0 +1,53 @@
+🔓 Login Feature (UI Tests Report)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|                    Scenario                     |                        Step Description                              | Status  |                          Notes                               |
+|-------------------------------------------------|----------------------------------------------------------------------|---------|--------------------------------------------------------------|
+| Successful login with valid credentials         | Given User is on the login page                                      | ✅ Pass | User reached login page successfully                         |
+|                                                 | When User enters valid username and password                         | ✅ Pass | Logged in with standard_user                                 |
+|                                                 | Then User should be redirected to the products page                  | ✅ Pass | Redirect successful                                          |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Failed login with invalid credentials           | Given User is on the login page                                      | ✅ Pass | User reached login page successfully                         |
+|                                                 | When User enters invalid username "wrong_user" and password...       | ✅ Pass | Login attempted with invalid credentials                     |
+|                                                 | Then An error message "Username and password do not match..."        | ✅ Pass | Error message correctly shown                                |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| User enters empty username and valid password   | Given User is on the login page                                      | ✅ Pass | User reached login page successfully                         |
+|                                                 | When User enters empty username and valid password                   | ✅ Pass | Input fields submitted                                       |
+|                                                 | Then An error message "Username is required" should be...            | ✅ Pass | Error correctly shown                                        |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| User enters valid username and empty password   | Given User is on the login page                                      | ✅ Pass | User reached login page successfully                         |
+|                                                 | When User enters valid username and empty password                   | ✅ Pass | Input fields submitted                                       |
+|                                                 | Then An error message "Password is required" should be...            | ✅ Pass | Error correctly shown                                        |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| User enters empty username and empty password   | Given User is on the login page                                      | ✅ Pass | User reached login page successfully                         |
+|                                                 | When User enters empty username and empty password                   | ✅ Pass | Input fields submitted                                       |
+|                                                 | Then An error message "Username is required" should be...            | ✅ Pass | Username error takes priority                                |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Login attempt with locked out user              | Given User is on the login page                                      | ✅ Pass | User reached login page successfully                         |
+|                                                 | When User logs in with username "locked_out_user" and password...    | ✅ Pass | Attempted login with locked out user                         |
+|                                                 | Then An error message "Sorry, this user has been locked out."        | ✅ Pass | Lockout error message confirmed                              |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Login with problem_user                         | Given User is on the login page                                      | ✅ Pass | User reached login page successfully                         |
+|                                                 | When User logs in with username "problem_user" ... and password ...  | ✅ Pass | Logged in with problem_user                                  |
+|                                                 | Then User should be redirected to the products page                  | ✅ Pass | Redirect confirmed                                           |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Login with performance_glitch_user              | Given User is on the login page                                      | ✅ Pass | User reached login page successfully                         |
+|                                                 | When User logs in with username "performance_glitch_user" ...        | ✅ Pass | Delayed login allowed for performance glitch                 |
+|                                                 | Then User should be redirected to the products page                  | ✅ Pass | Redirect confirmed                                           |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Login attempts with various credentials         | When User logs in with username "standard_user" ...                  | ✅ Pass | Expected: redirected to products page                        |
+|                                                 | When User logs in with username "locked_out_user" ...                | ✅ Pass | Expected: lockout error                                      |
+|                                                 | When User logs in with username "problem_user" ...                   | ✅ Pass | Expected: redirected to products page                        |
+|                                                 | When User logs in with username "performance_glitch_user" ...        | ✅ Pass | Expected: redirected to products page after slight delay     |
+|                                                 | When User logs in with username "wrong_user" ...                     | ✅ Pass | Expected: invalid credentials error                          |
+|                                                 | When User logs in with username "" and password "secret_sauce"       | ✅ Pass | Expected: username required                                  |
+|                                                 | When User logs in with username "standard_user" and password...      | ✅ Pass | Expected: password required                                  |
+|                                                 | When User logs in with username "" and password ""                   | ✅ Pass | Expected: username required                                  |
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Attempt to access to the inventory page         | Given User is on the login page                                      | ✅ Pass | Login page loaded without prior login                        |
+| without being logged in                         | When User tries to access the inventory page link directly           | ✅ Pass | Direct inventory link access simulated                       |
+|                                                 | Then redirection should not occur and user should remain...          | ✅ Pass | Verified user remained on login page (redirection blocked)   |
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Attempt to access to the cart page              | Given User is on the login page                                      | ✅ Pass | Login page loaded without prior login                        |
+| without being logged in                         | When User tries to access the cart page link directly                | ✅ Pass | Direct cart link access simulated                            |
+|                                                 | Then redirection should not occur and user should remain...          | ✅ Pass | Verified user remained on login page (redirection blocked)   |
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
