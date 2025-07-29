@@ -272,7 +272,7 @@ public class PostsApiTests {
         log("==== Starting Test: PUT /posts/999999 ====", true);
 
         int requestUserId = 1;
-        String requestTitle = "When two devs tell you that you are a teapot, you must let out the fucking steam.";
+        String requestTitle = "When two devs tell you that you are a teapot, you must let out the freaking steam.";
         String requestBodyDescription = "Payload contains boiling sarcasm. Endpoint may hiss in protest.";
 
         log("Preparing PUT request body", true);
