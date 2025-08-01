@@ -1,7 +1,7 @@
 # 🧑‍💻 Automation Fusion Project
 
 **Automation Fusion** is a modular, scalable test automation framework that integrates
-**Cucumber**, **Selenium**, **REST Assured**, and **TestNG**. It is built to streamline
+**REST Assured**, **TestNG** **Cucumber** and **Selenium**. It is built to streamline
 the creation, execution, and maintenance of both API and UI automated tests, with clean
 architecture and flexible configuration.
 
